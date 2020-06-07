@@ -43,3 +43,9 @@ if __name__ == "__main__":
     mergeSort(a)
     print("Sorted array is: ")
     printList(a)
+
+# Time complexity
+# T(n) = 2*T(n/2)+ Theta(n)
+# or
+# Theta(nLogn)
+# Auxiliary Space O(n)
