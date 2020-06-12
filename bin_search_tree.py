@@ -37,6 +37,14 @@ def insert(root, node):
             else: 
                 insert(root, node)
 
+# Inorder traversal/print function
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.key)
+        inorder(root.right)
+    
+
 # Driver code
 if __name__ == "__main__":
 
