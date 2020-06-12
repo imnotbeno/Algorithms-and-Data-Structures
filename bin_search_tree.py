@@ -20,9 +20,24 @@ def search(root, val):
     if root.key > val:
         return search(root.left, val) 
 
+# Insertion function
+def insert(root, node):
+    if root is None:
+        root = node
+    else:
+        if root.key < node.key:
+            if root.right == None:
+                root.right = node 
+            else: 
+                insert(root, node)
+
+        if root.key > node.key:
+            if root.left == None:
+                root.left = node 
+            else: 
+                insert(root, node)
 
 # Driver code
-
 if __name__ == "__main__":
 
     root = Node(6)
