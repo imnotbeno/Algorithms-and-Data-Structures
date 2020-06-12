@@ -90,6 +90,7 @@ def delete(key, node):
     return node 
 
 # Tree traversal inorder(left, root, right)
+# These are Depth First Traversals
 def printInorder(node):
     if not node:
         return
@@ -120,6 +121,9 @@ def printPostorder(node):
     printPostorder(node.right)
     print(node.key, end=" ")
 
+# Breadth first traversal: left-right each branch deep
+# 10 11 9 7 15 8
+# All of them require O(n) time as they visit each node once
 
 # Driver code
 if __name__ == "__main__":
