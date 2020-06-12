@@ -20,12 +20,12 @@ def mergeSort(arr):
                 arr[k] = right[j]
                 j+=1
             k+=1
-        
+
         while i < len(left):
             arr[k] = left[i]
             i+=1
             k+=1
-        
+
         while j < len(right):
             arr[k] = right[j]
             j+=1
@@ -37,7 +37,7 @@ def printList(arr):
     print()
 
 if __name__ == "__main__":
-    a = [12, 11, 13, 5, 6, 7]
+    a = [12, 11, 13, 5, 6, 7, 34, 109, 23, 44, 56, 234]
     print("Given array is: ")
     printList(a)
     mergeSort(a)

@@ -30,6 +30,64 @@ def insert(key, node):
         else:
             q.append(node.right)
 
+# Function to find and delete the deepest right node in a binary tree
+def deleteDeepest(root, d_node):
+    q = []
+    q.append(root)
+
+    while len(q):
+        r_temp = q.pop(0)
+        
+        if r_temp is d_node:
+            r_temp = None 
+            return 
+
+        if r_temp.right:
+            if r_temp.right is d_node:
+                r_temp.right = None 
+                return
+            else: 
+                q.append(r_temp.right)
+                
+        if r_temp.left:
+            if r_temp.left is d_node:
+                r_temp.left = None 
+                return
+            else: 
+                q.append(r_temp.left)
+
+# Function to delete binary tree element
+def delete(key, node):
+
+    if node == None:
+        return None
+    if node.left == None and node.right == None:
+        if node.key == key:
+            return None
+        else: 
+            return node
+    
+    key_node = None 
+    q = []
+    q.append(node)
+
+    while len(q):
+        r_temp = q.pop(0) 
+        
+        if r_temp.key == key:
+            key_node = r_temp
+
+        if r_temp.left:
+            q.append(r_temp.left)
+            
+        if r_temp.right:
+            q.append(r_temp.right)
+
+    if key_node: 
+        x = r_temp.key
+        deleteDeepest(node, r_temp)
+        key_node.key = x
+    return node 
 
 # Tree traversal inorder(left, root, right)
 def printInorder(node):
@@ -72,14 +130,20 @@ if __name__ == "__main__":
     root.right.right = Node(8)
     root.right.left = Node(15)
 
-    print("Inorder printing before insert: ", end=" ")
+    print("Tree before deletion: ")
     printInorder(root)
+    print("\nTree after deletion: ")
+    dt = delete(11, root)
+    printInorder(dt)
 
-    key = 12
-    insert(key, root)
-
-    print("\nInorder printing after insertion: ", end=" ")
-    printInorder(root)
-
-    print("\nPreorder printing after insertion", end=" ")
-    printPreorder(root)
+    # print("Inorder printing before insert: ", end=" ")
+    # printInorder(root)
+    #
+    # key = 12
+    # insert(key, root)
+    #
+    # print("\nInorder printing after insertion: ", end=" ")
+    # printInorder(root)
+    #
+    # print("\nPreorder printing after insertion", end=" ")
+    # printPreorder(root)
