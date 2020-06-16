@@ -63,6 +63,8 @@ def delete(root, key):
         root.right = delete(root.right, key)
 
     else:
+
+        # Node with only one or no child
         if root.left is None:
             tmp = root.right
             root = None
@@ -100,8 +102,16 @@ insert(r,Node(60))
 insert(r,Node(80)) 
   
 # Print inoder traversal of the BST 
+print("Before deleting a node")
 inorder(r) 
 
+# print("After deleting a leaf")
+# delete(r, 20)
+# inorder(r)
+
+print("After deleting a node with 2 child nodes")
+delete(r, 30)
+inorder(r)
 # Worst case time complexity of both search
 # and insert is O(h) where h is the height 
 # of the tree
