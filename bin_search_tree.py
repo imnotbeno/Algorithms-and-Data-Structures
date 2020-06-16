@@ -46,7 +46,7 @@ def insert(root,node):
 def minValNode(node):
     current = node
 
-    while(current.key is not None):
+    while current.key is not None:
         current = current.left 
     return current 
     
@@ -105,13 +105,18 @@ insert(r,Node(80))
 print("Before deleting a node")
 inorder(r) 
 
-# print("After deleting a leaf")
-# delete(r, 20)
+print("After deleting a leaf")
+delete(r, 20)
+inorder(r)
+
+print("After deleting a leaf")
+delete(r, 50)
+inorder(r)
+
+# print("After deleting a node with 2 child nodes")
+# delete(r, 30)
 # inorder(r)
 
-print("After deleting a node with 2 child nodes")
-delete(r, 30)
-inorder(r)
 # Worst case time complexity of both search
 # and insert is O(h) where h is the height 
 # of the tree
