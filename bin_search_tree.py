@@ -73,6 +73,16 @@ def delete(root, key):
             root = None 
             return tmp
 
+        # Getting the inorder successor
+        tmp = minValNode(root.right)
+
+        # Copying the inorder succesor's key to root key
+        root.key = tmp.key
+
+        # Delete the inorder successor
+        root.right = delete(root.right, tmp.key)
+    
+    return root
   
 # Driver program to test the above functions 
 # Let us create the following BST 
