@@ -60,3 +60,7 @@ insert(r,Node(80))
   
 # Print inoder traversal of the BST 
 inorder(r) 
+
+# Worst case time complexity of both search
+# and insert is O(h) where h is the height 
+# of the tree
