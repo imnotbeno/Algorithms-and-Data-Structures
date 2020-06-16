@@ -4,27 +4,34 @@ class Node:
     def __init__(self,key): 
         self.left = None
         self.right = None
-        self.val = key 
+        self.key = key 
 
 def search(root,key): 
       
     # Base Cases: root is null or key is present at root 
-    if root is None or root.val == key: 
+    if root is None or root.key == key: 
         return root 
   
     # Key is greater than root's key 
-    if root.val < key: 
+    if root.key < key: 
         return search(root.right,key) 
     
     # Key is smaller than root's key 
     return search(root.left,key)   
 
+# Inorder tree traversal 
+def inorder(root): 
+    if root: 
+        inorder(root.left) 
+        print(root.key) 
+        inorder(root.right) 
+   
 # Node insert function 
 def insert(root,node): 
     if root is None: 
         root = node 
     else: 
-        if root.val < node.val: 
+        if root.key < node.key: 
             if root.right is None: 
                 root.right = node 
             else: 
@@ -34,14 +41,38 @@ def insert(root,node):
                 root.left = node 
             else: 
                 insert(root.left, node) 
-  
-# Inorder tree traversal 
-def inorder(root): 
-    if root: 
-        inorder(root.left) 
-        print(root.val) 
-        inorder(root.right) 
-  
+
+# Function to find inorder successor
+def minValNode(node):
+    current = node
+
+    while(current.key is not None):
+        current = current.left 
+    return current 
+    
+# Deleting a node in the tree
+def delete(root, key):
+    
+    if root is None:
+        return None
+
+    if key < root.key:
+        root.left = delete(root.left, key)
+    
+    elif key > root.key:
+        root.right = delete(root.right, key)
+
+    else:
+        if root.left is None:
+            tmp = root.right
+            root = None
+            return tmp
+        
+        if root.right is None:
+            tmp = root.left
+            root = None 
+            return tmp
+
   
 # Driver program to test the above functions 
 # Let us create the following BST 
