@@ -8,5 +8,8 @@ class Queue:
         self.rear = capacity -1
         self.Q = [None]*capacity
 
+    def qFull(self):
+        return self.size == self.capacity
 
-
+    def qEmpty():
+        return self.size == 0
