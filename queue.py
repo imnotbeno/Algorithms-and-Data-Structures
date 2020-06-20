@@ -56,4 +56,5 @@ if __name__ == "__main__":
     queue.dequeue()
     queue.getFront()
     queue.getRear()
-    
+    # All these operations need O(1) time
+
