@@ -35,6 +35,21 @@ class Queue:
         self.front = (self.front + 1) % (self.capacity)
         self.size = self.size - 1
 
+    # Function to get rear element
+    def getRear(self):
+        if self.qEmpty:
+            print("The queue is empty!")
+        print("The rear element of the queue is: ", self.Q[self.rear])
+
+    # Function to get front element
+    def getFront(self):
+        if self.qEmpty:
+            print("The queue is empty!")
+        print("The front element of the queueu is: ", self.Q[self.front])
+
 if __name__ == "__main__":
     queue = Queue(30)
     queue.enqueue(10)
+    queue.enqueue(20)
+    queue.enqueue(50)
+    queue.enqueue(40)
