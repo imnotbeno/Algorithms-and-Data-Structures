@@ -27,4 +27,24 @@ class CircularQueue():
             self.queue[self.rear] = item
 
     # Function to delete item in queue
-    #def dequeue(self):    
+    def dequeue(self):    
+        if self.front == -1:
+            print("Queue is empty")
+
+        # Condition for only one element
+        elif self.front == self.rear:
+            tmp = self.queue[self.front]
+            self.front = -1
+            self.rear = -1
+            return tmp
+
+        else:
+            tmp = self.queue[self.front]
+            self.front = (self.front + 1) % self.size
+            return tmp
+
+
+# Driver code
+if __name__ == "__main__":
+    cq = CircularQueue(40)
+    cq.enqueue(10)
