@@ -21,6 +21,7 @@ class CircularQueue():
             self.front = 0
             self.rear = 0
             self.queue[self.rear] = item
+            print("% s has been enqueued!")
 
         else:
             self.rear = (self.rear + 1) % self.size
@@ -72,3 +73,9 @@ class CircularQueue():
 if __name__ == "__main__":
     cq = CircularQueue(40)
     cq.enqueue(10)
+    cq.enqueue(20)
+    cq.enqueue(35)
+    cq.enqueue(52)
+    cq.display()
+    cq.dequeue()
+    cq.display()
