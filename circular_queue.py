@@ -79,3 +79,6 @@ if __name__ == "__main__":
     cq.display()
     cq.dequeue()
     cq.display()
+
+# Time complexity of enqueue and dequeue is O(1) 
+# as there is no loop in the operations
